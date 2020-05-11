@@ -26,19 +26,17 @@ RUN apt-get update \
  && virtualenv ${WORKSPACE} \
  && ${WORKSPACE}/bin/pip install --no-cache-dir pyats>=${PYATS_VERSION} genie>=${GENIE_VERSION} \
  && mkdir ${WORKSPACE}/users && chmod 775 ${WORKSPACE}/users \
- && apt-get remove -y curl build-essential\
+#  && apt-get remove -y curl build-essential\
  && apt-get autoremove -y\
  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+ && apt-get remove genieparser
 
 # modify entrypoint
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-# ADD run.sh /run.sh
-# RUN chmod +x /run.sh
 
-# ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh", "/run.sh"]
 ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh"]
 
 # default to python shell
