@@ -48,7 +48,7 @@ cd ${WORKSPACE}
 cd $GITHUB_WORKSPACE/$1
 
 # install dependencies
-pip3 install -r $2
+# pip3 install -r $2
 
 # test
 python3 -m unittest discover -t $3 -p $4
