@@ -4,10 +4,10 @@ branding:
   icon: check-square
   color: green
 inputs:
-#   deps_list:
-#     description: dependency list
-#     required: true
-#     default: requirements.txt
+  deps_list:
+    description: dependency list
+    required: true
+    default: requirements.txt
   path:
     description: path of git repo relative to GITHUB_WORKSPACE(no trailing slash)
     required: true
@@ -25,6 +25,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.path }}
-#     - ${{ inputs.deps_list }}
+    - ${{ inputs.deps_list }}
     - ${{ inputs.test_dir }}
     - ${{ inputs.pattern }}
