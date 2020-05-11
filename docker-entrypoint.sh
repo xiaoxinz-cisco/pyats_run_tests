@@ -39,7 +39,7 @@ fi
 
 # set cwd
 # -------
-cd ${WORKSPACE}
+# cd ${WORKSPACE}
 # enter develop mode
 make develop
 
