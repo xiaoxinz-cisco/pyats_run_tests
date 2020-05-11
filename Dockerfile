@@ -25,13 +25,13 @@ RUN apt-get update \
  && pip3 install --upgrade --no-cache-dir setuptools pip virtualenv \
  && virtualenv ${WORKSPACE} \
  && ${WORKSPACE}/bin/pip install --no-cache-dir pyats>=${PYATS_VERSION} genie>=${GENIE_VERSION} \
+ && ${WORKSPACE}/bin/pip uninstall -y genie.parser \
  && mkdir ${WORKSPACE}/users && chmod 775 ${WORKSPACE}/users \
 #  && apt-get remove -y curl build-essential\
  && apt-get autoremove -y\
  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
- && apt-get remove genieparser
 
 # modify entrypoint
 COPY docker-entrypoint.sh /entrypoint.sh
