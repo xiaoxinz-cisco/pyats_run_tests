@@ -53,4 +53,4 @@ python3 -m unittest discover -t $3 -p $4
 
 # handoff
 # -------
-exec "$@"
+# exec "$@"
