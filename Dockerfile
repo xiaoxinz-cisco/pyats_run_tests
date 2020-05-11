@@ -33,10 +33,10 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 # modify entrypoint
-# COPY docker-entrypoint.sh /entrypoint.sh
-# RUN chmod +x /entrypoint.sh
-ADD run.sh /run.sh
-RUN chmod +x /run.sh
+COPY docker-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+# ADD run.sh /run.sh
+# RUN chmod +x /run.sh
 
 # ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh", "/run.sh"]
 ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh"]
