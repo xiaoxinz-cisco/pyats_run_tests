@@ -34,7 +34,7 @@ RUN apt-get update \
 
 # modify entrypoint
 COPY docker-entrypoint.sh /entrypoint.sh
-CHMOD +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 ADD run.sh /run.sh
 
 ENTRYPOINT ["/bin/tini", "--", "/entrypoint.sh", "/run.sh"]
