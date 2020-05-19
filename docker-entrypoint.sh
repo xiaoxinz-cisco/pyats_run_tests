@@ -51,6 +51,7 @@ cd $GITHUB_WORKSPACE/$1
 # test
 python3 -m unittest discover -t $3 -p $4
 
-# handoff
-# -------
-# exec "$@"
+# make json
+cd $GITHUB_WORKSPACE
+rm sdk_generator/outputs/github_parser.json
+make json
