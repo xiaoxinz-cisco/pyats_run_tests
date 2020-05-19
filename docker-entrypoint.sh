@@ -52,6 +52,7 @@ cd $GITHUB_WORKSPACE/$1
 python3 -m unittest discover -t $3 -p $4
 
 # make json
-cd $GITHUB_WORKSPACE
-rm sdk_generator/outputs/github_parser.json
-make json
+# following will generate error: no such file: ...parser..yaml <- reason: this folder name is not 'genieparser'
+# cd $GITHUB_WORKSPACE
+# rm sdk_generator/outputs/github_parser.json
+# make json
